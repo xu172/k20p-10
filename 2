@@ -1,0 +1,21 @@
+a=sagit_defconfig
+b=raphael_defconfig
+c=chiron_defconfig
+d=cepheus_defconfig
+e=lineageos_nash_defconfig
+make O=out ARCH=arm64 $b
+PATH="${HOME}/bin:${PATH}" \
+make -j64 O=out \
+ARCH=arm64 \
+CROSS_TRIPLE=aarch64-linux-gnu \
+CC=clang \
+CROSS_COMPILE=aarch64-linux-gnu \
+CROSS_COMPILE_ARM32=arm-linux-gnueabi \
+LD=ld.lld \
+AR=llvm-ar \
+NM=llvm-nm \
+OBJCOPY=llvm-objcopy \
+OBJDUMP=llvm-objdump \
+OBJSIZE=llvm-size \
+STRIP=llvm-strip | tee kernel.log
+

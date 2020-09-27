@@ -1,0 +1,10 @@
+a=anykernel3
+b=k20p-10.zip
+c=out/arch/arm64/boot
+#cp -r $c/Image.gz-dtb $a&&cd $a
+cp -r $c/Image-dtb $c/dtbo.img $a&&cd $a
+zip -r "$b" *
+mv -f "$b" /media/m/Ventoy
+#mv -f "$b" /run/user/1000/gvfs/mtp:host=Xiaomi_Redmi_K20_Pro_8a9264e8/内部存储设备
+rm -f Image-dtb dtbo.img
+
