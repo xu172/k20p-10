@@ -65,6 +65,7 @@ case "$ZIPFILE" in
     ;;
 esac
 
+insert_line /vendor/etc/fstab.qcom "f2fs" after "/data" "/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,fsync_mode=nobarrier    latemount,wait,check,quota,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc";
 mount -o ro,remount -t auto /vendor;
 
 # end ramdisk changes
