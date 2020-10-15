@@ -1,1 +1,19 @@
-echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse #重复利用处于time_wait状态的连接
+echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse 
+#重复利用处于time_wait状态的连接
+echo '0-3' > /dev/cpuset/audio-app/cpus
+echo '0-3' > /dev/cpuset/background/cpus
+echo '0-3' > /dev/cpuset/camera-daemon/cpus
+echo '0-2,4-6' > /dev/cpuset/foreground/cpus
+echo '0-3' > /dev/cpuset/restricted/cpus
+echo '0-2,4' > /dev/cpuset/system-background/cpus
+echo '0-7' > /dev/cpuset/top-app/cpus
+echo '0' > /dev/stune/schedtune.boost
+echo '0' > /dev/stune/schedtune.prefer_idle
+echo '10' > /dev/stune/top-app/schedtune.boost
+echo '0' > /dev/stune/top-app/schedtune.prefer_idle
+echo '10' > /dev/stune/rt/schedtune.boost
+echo '0' > /dev/stune/rt/schedtune.prefer_idle
+echo '1' > /dev/stune/foreground/schedtune.boost
+echo '0' > /dev/stune/foreground/schedtune.prefer_idle
+echo '5' > /dev/stune/background/schedtune.boost
+echo '0' > /dev/stune/background/schedtune.prefer_idle
